@@ -1,0 +1,286 @@
+.workSection {
+  height: auto;
+  width: 100%;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.326);
+  padding: 30px 0;
+  background-color: black;
+  color: #fff;
+}
+
+.workContainer {
+  padding: 25px 0;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.workHeader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.workListContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  width: 100%;
+  padding: 30px 0;
+  gap: 20px;
+}
+.workBoxContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.workBox {
+  width: 100%;
+  height: 550px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.workBox img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.5s ease-out;
+  -webkit-transition: 0.5s ease-out;
+  -moz-transition: 0.5s ease-out;
+  -ms-transition: 0.5s ease-out;
+  -o-transition: 0.5s ease-out;
+}
+
+.workBox img:hover {
+  scale: 1.045;
+  transition: 0.5s ease-out;
+  -webkit-transition: 0.5s ease-out;
+  -moz-transition: 0.5s ease-out;
+  -ms-transition: 0.5s ease-out;
+  -o-transition: 0.5s ease-out;
+}
+.view {
+  position: absolute;
+  display: flex;
+  text-decoration: none;
+  width: 200px;
+  padding: 10px 20px;
+  gap: 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  background-color: rgba(242, 242, 242, 0.396);
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+}
+
+.view:hover {
+  scale: 1.035;
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+}
+
+.workText {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-transform: uppercase;
+}
+@media (width <= 400px) {
+  .workHeader {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: unset;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .workListContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    height: 100%;
+    width: 100%;
+    padding: 30px 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    row-gap: 30px;
+  }
+
+  .workBoxContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .workBox {
+    width: 100%;
+    height: 260px;
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+  .view {
+    position: absolute;
+    display: flex;
+    border: 1px solid white;
+    width: 200px;
+    padding: 10px 20px;
+    gap: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    background-color: transparent;
+  }
+}
+
+@media (400px <= width <= 780px) {
+  .workHeader {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: unset;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .workListContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    height: 100%;
+    width: 100%;
+    padding: 30px 0;
+    row-gap: 30px;
+  }
+
+  .workBoxContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .workBox {
+    width: 100%;
+    height: 260px;
+    border: none;
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+  .view {
+    position: absolute;
+    display: flex;
+    border: 1px solid white;
+    width: 200px;
+    padding: 10px 20px;
+    gap: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    background-color: transparent;
+  }
+}
+
+@media (780px <= width <= 960px) {
+  .workSection {
+    height: 100%;
+    width: 100%;
+  }
+
+  .workContainer {
+    padding: 25px 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .workHeader {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 32px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .workListContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    height: 100%;
+    width: 100%;
+    padding: 30px 15px;
+    row-gap: 10px;
+  }
+  .workBoxContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .workBox {
+    width: 100%;
+    height: 550px;
+    border: none;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .view {
+    position: absolute;
+    display: flex;
+    border: 1px solid white;
+    width: 200px;
+    padding: 10px 20px;
+    gap: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    background-color: transparent;
+    color: #fff;
+  }
+
+  .workText {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
