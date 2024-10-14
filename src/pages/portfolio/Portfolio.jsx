@@ -32,7 +32,7 @@ export const Works = () => {
   );
 };
 
-const WorkBox = ({ id, work, img, title }) => {
+const WorkBox = ({ work }) => {
   const [hover, setHover] = useState(false);
 
   const Mouseenter = () => {
@@ -45,7 +45,7 @@ const WorkBox = ({ id, work, img, title }) => {
 
   return (
     <motion.div
-      key={id}
+      key={work.id}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -61,18 +61,23 @@ const WorkBox = ({ id, work, img, title }) => {
         onMouseEnter={Mouseenter}
         onMouseLeave={Mouseleave}
       >
-        <img src={img} alt="" />
+        <img src={work.img} alt={work.title} />
         {hover && (
-          <Link to={`/projectdetail/${id}`} className="view">
+          <a
+            href={work.path}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="view"
+          >
             <AiOutlineEye />
             <p>VIEW PROJECT</p>
-          </Link>
+          </a>
         )}
       </div>
 
       <div className="workText">
-        <p>{title}</p>
-        <p>WEBSITE</p>
+        <p>{work.title}</p>
+        <p>{work.type}</p>
       </div>
     </motion.div>
   );
