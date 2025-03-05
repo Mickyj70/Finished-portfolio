@@ -188,7 +188,7 @@ export const data = [
     programs: "NEXT JS,TAILWIND CSS, FRAMER",
     img: "https://i.ibb.co/M1SgbDL/Screenshot-254.png",
     desc: "A simple website for a consulting firm, showcasing their services and expertise. The website is designed to provide visitors with a clear understanding of the firm's offerings and capabilities.",
-    year: 2023,
+    year: 2024,
     type: "Website",
     github: "https://github.com/EmmaExcel/Travel2.0",
     detailImage: [
@@ -222,7 +222,40 @@ export const data = [
     programs: "NEXT JS,TAILWIND CSS, FRAMER, ",
     img: "https://i.ibb.co/Hnrk90X/Screenshot-255.png",
     desc: "A website used for the buying and selling of properties",
-    year: 2023,
+    year: 2024,
+    type: "Website",
+    github: "https://github.com/EmmaExcel/Travel2.0",
+    detailImage: [
+      {
+        id: 1,
+        imgUrl:
+          "https://framerusercontent.com/images/RGGWoF0v0bipS9MRA5yNeVX6IOo.png",
+      },
+      {
+        id: 2,
+        imgUrl:
+          "https://framerusercontent.com/images/gJSY14rM6txjgtDwKxxDMeoQ.png",
+      },
+      {
+        id: 3,
+        imgUrl:
+          "https://framerusercontent.com/images/GPCZTysTLH8quaOvO4uju1Qztw.png",
+      },
+      {
+        id: 4,
+        imgUrl:
+          "https://framerusercontent.com/images/bznxPD0Q7m5MkI2uPnUEfunPI.png",
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: "BigMike",
+    path: "https://obsidian-three-snowy.vercel.app/",
+    programs: "NEXT JS,TAILWIND CSS, FRAMER, ",
+    img: "https://ik.imagekit.io/mickyj77/Screenshot%202025-03-05%20155425.png?updatedAt=1741186710356",
+    desc: "A website used for the buying and selling of clothes and accessories",
+    year: 2025,
     type: "Website",
     github: "https://github.com/EmmaExcel/Travel2.0",
     detailImage: [
