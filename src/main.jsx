@@ -5,19 +5,23 @@ import { ProjectDetail } from "./components/project-detail.jsx";
 import { Contact } from "./pages/contact/Contact";
 import Scrolltotop from "./components/scrollup/Scrolltotop";
 import Navbar from "./components/navbar/Navbar";
+import { ThemeProvider } from "./context/ThemeContext";
+import "./App.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <section className="mainSection">
-      <div className="main">
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<App />} />
-          <Route path="/projectdetail/:id" element={<ProjectDetail />} />
-        </Routes>
-        <Contact />
-        <Scrolltotop />
-      </div>
-    </section>
-  </BrowserRouter>
+  <ThemeProvider>
+    <BrowserRouter>
+      <section className="min-h-screen">
+        <div className="relative">
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<App />} />
+            <Route path="/projectdetail/:id" element={<ProjectDetail />} />
+          </Routes>
+          <Contact />
+          <Scrolltotop />
+        </div>
+      </section>
+    </BrowserRouter>
+  </ThemeProvider>
 );

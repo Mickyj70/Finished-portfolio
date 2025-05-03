@@ -1,23 +1,61 @@
-/* font-family: 'Dosis', sans-serif;
-font-family: 'Noto Sans', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Slab', serif; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* <div style="width:100%"><div style="height:0;padding-bottom:56.25%;position:relative;width:100%"><iframe allowfullscreen="" frameBorder="0" height="100%" src="https://giphy.com/embed/ozNvZioZuhQZ9YmxvX/video" style="left:0;position:absolute;top:0" width="100%"></iframe></div></div> */
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	scroll-snap-type: y mandatory;
-	scroll-behavior: smooth !important;
-	list-style: none;
-	text-decoration: none;
-	/* height: 100vh;
-	background: url("https://giphy.com/embed/ozNvZioZuhQZ9YmxvX/video"); */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-poppins transition-colors duration-200;
+  }
 }
 
-li {
-	list-style: none;
+@layer components {
+  .section-container {
+    @apply w-full min-h-screen px-4 md:px-8 lg:px-16 py-16;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-8;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 rounded-md transition-all duration-300 relative overflow-hidden
+    border border-transparent hover:border-current
+    before:content-[''] before:absolute before:w-1 before:h-1 before:top-0 before:left-0 before:transition-colors
+    after:content-[''] after:absolute after:w-1 after:h-1 after:bottom-0 after:right-0 after:transition-colors;
+  }
+}
+
+/* Theme specific styles */
+.theme-dark {
+  @apply bg-dark-background text-dark-text;
+}
+
+.theme-dark .btn-primary {
+  @apply bg-dark-accent text-dark-secondary hover:text-white hover:border-dark-primary
+  before:bg-dark-accent hover:before:bg-white
+  after:bg-dark-primary hover:after:bg-white;
+}
+
+.theme-dim {
+  @apply bg-dim-background text-dim-text;
+}
+
+.theme-dim .btn-primary {
+  @apply bg-dim-accent text-dim-secondary hover:text-white hover:border-dim-primary
+  before:bg-dim-accent hover:before:bg-white
+  after:bg-dim-primary hover:after:bg-white;
+}
+
+.theme-light {
+  @apply bg-light-background text-light-text;
+}
+
+.theme-light .btn-primary {
+  @apply bg-light-accent text-light-secondary hover:text-light-text hover:border-light-primary
+  before:bg-light-accent hover:before:bg-light-text
+  after:bg-light-primary hover:after:bg-light-text;
 }

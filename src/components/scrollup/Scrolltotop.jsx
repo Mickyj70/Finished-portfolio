@@ -1,42 +1,21 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaAnglesUp } from "react-icons/fa6";
-
-// textVariant = {
-//     initial : {
-//         x: -500,
-//         opacity : 0.
-//     },
-//     animate : {
-//         x : 0,
-//         opacity : 1,
-//         transition : {
-//             duration:  1,
-//             staggerChildren: 0.1
-//         }
-//     },
-//     scrollButton : {
-//         opacity: 0,
-//         y: 10,
-//         transition: {
-//     duration: 2,
-//     repeat : Infinity
-//         }
-//     }
-// }
 
 export default function Scrolltotop() {
   const [backToTopButton, setBackToTopButton] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       if (window.scrollY > 100) {
         setBackToTopButton(true);
       } else {
         setBackToTopButton(false);
       }
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollUp = () => {
@@ -47,38 +26,30 @@ export default function Scrolltotop() {
   };
 
   return (
-    <motion.div
-      className="topButton-body"
-      animate={{
-        y: 10,
-        opacity: 0.5,
-      }}
-      transition={{
-        duration: 2,
-        repeat: Infinity,
-      }}
-    >
+    <AnimatePresence>
       {backToTopButton && (
         <motion.button
-          style={{
-            position: "fixed",
-            bottom: "50px",
-            right: "50px",
-            fontSize: "50px",
-            width: "50px",
-            height: "50px",
-            cursor: "pointer",
-            border: "none",
-            outline: "none",
-            borderRadius: "10px",
-            background: "transparent",
-            color: "#ffff",
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ 
+            opacity: 1, 
+            scale: 1,
+            y: [0, 10, 0],
+            transition: {
+              y: {
+                repeat: Infinity,
+                duration: 2,
+                ease: "easeInOut"
+              }
+            }
           }}
+          exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollUp}
+          className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary text-white shadow-lg hover:opacity-90 transition-opacity"
+          aria-label="Scroll to top"
         >
-          <FaAnglesUp />
+          <FaAnglesUp className="text-2xl" />
         </motion.button>
       )}
-    </motion.div>
+    </AnimatePresence>
   );
 }

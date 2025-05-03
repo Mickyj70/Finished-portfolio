@@ -1,58 +1,83 @@
-import "./home.css";
+// import "./home.css";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
+import Typewriter from "typewriter-effect";
+import { FaArrowDown } from "react-icons/fa";
+// import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+// import { HiOutlineMail } from "react-icons/hi";
 
 const Home = () => {
   return (
-    //changes
-
-    <div className="home" id="home">
-      <div className="home-wrapper">
+    <section id="home" className="section-container flex items-center justify-center">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="large-text"
-          initial={{ y: 20 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-4xl mx-auto text-center md:text-left"
         >
-          <p>Hey, I&apos;m Michael </p>
-          <span>FullStack Developer</span>
-        </motion.div>
-        <motion.div
-          className="home-middle"
-          initial={{ y: 70 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <button className="home-button">
-            <a href="https://github.com/Mickyj70">
-              <FaGithub /> Github
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
+            Hi, I&apos;m <span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">Mike</span>
+          </h1>
+          
+          <div className="text-2xl md:text-4xl font-bold mb-8 h-16">
+            <Typewriter
+              options={{
+                strings: [
+                  "Fullstack Developer",
+                  "Mobile App Developer",
+                  "Web3 Developer",
+                  "Blockchain Enthusiast",
+                  "Smart Contract Engineer",
+                  "DApp Creator",
+                ],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </div>
+          
+          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto md:mx-0 font-medium">
+            I build powerful <span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">end-to-end solutions</span> from 
+            responsive frontends to scalable backends, and develop <span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">decentralized applications</span> on 
+            blockchain technology.
+          </p>
+          
+          <div className="flex flex-wrap gap-6 justify-center md:justify-start">
+            <a href="#works" className="btn-primary text-lg font-bold px-8 py-4">
+              View My Work
             </a>
-          </button>
-          <button className="home-button">
-            <a href="https://www.linkedin.com/in/michael-joseph-5458b5234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-              <FaLinkedinIn /> LinkedIn
+            <a href="#contact" className="btn-primary text-lg font-bold px-8 py-4">
+              Contact Me
             </a>
-          </button>
-          <button className="home-button">
-            <a href="mailto:emrex1291@gmail.com">
-              <HiOutlineMail /> Email
-            </a>
-          </button>
-        </motion.div>
-        <div className="small-text">
-          <motion.p
-            initial={{ y: 70, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4 }}
+          </div>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="mt-16 text-xl"
           >
-            Hi, I&apos;m Michael an Experienced full-stack developer with over 3
-            years of experience in React, Next, Node js, and express js. Ready
-            to create innovative web solutions.
-          </motion.p>
-        </div>
+            <p className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary font-medium">
+              Specializing in <span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">React</span>,<span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">React Native</span>,
+               <span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">Node.js</span>, <span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">Solidity</span>, and <span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">Web3.js</span>
+            </p>
+          </motion.div>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-3xl"
+        >
+          <FaArrowDown className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
