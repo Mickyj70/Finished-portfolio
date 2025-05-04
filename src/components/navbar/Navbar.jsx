@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { FaInstagram, FaGithub, FaWhatsapp, FaTimes } from "react-icons/fa";
+import { FaInstagram, FaGithub, FaWhatsapp, FaTimes, FaTwitter } from "react-icons/fa";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { motion } from "framer-motion";
 import ThemeSwitcher from "../ThemeSwitcher";
@@ -77,13 +77,13 @@ const Navbar = () => {
             <FaGithub />
           </a>
           <a 
-            href="http://instagram.com/mike_dev7?igshid=NGVhN2U2NjQ0Yg==" 
+            href="https://x.com/IAmMicky7" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-xl hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors"
-            aria-label="Instagram"
+            aria-label="twitter"
           >
-            <FaInstagram />
+            <FaTwitter />
           </a>
           <a 
             href="https://wa.link/hzr6ow" 

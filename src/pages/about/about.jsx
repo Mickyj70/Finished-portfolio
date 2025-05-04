@@ -74,7 +74,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: 0.05 * index }}
-                    className="bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
+                    className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
                                px-3 py-2 rounded-md text-center text-sm"
                   >
                     {skill}
@@ -95,7 +95,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: 0.05 * index }}
-                    className="bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
+                    className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
                                px-3 py-2 rounded-md text-center text-sm"
                   >
                     {skill}
@@ -116,7 +116,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: 0.05 * index }}
-                    className="bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
+                    className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
                                px-3 py-2 rounded-md text-center text-sm"
                   >
                     {skill}
@@ -136,7 +136,7 @@ const About = () => {
         >
           <h3 className="text-2xl font-semibold mb-8 text-center">What I Do</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
+            <div className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
                           p-6 rounded-lg text-center">
               <div className="text-4xl mb-4 flex justify-center">
                 <FaCode className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />
@@ -148,7 +148,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
+            <div className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
                           p-6 rounded-lg text-center">
               <div className="text-4xl mb-4 flex justify-center">
                 <FaServer className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />
@@ -160,7 +160,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
+            <div className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
                           p-6 rounded-lg text-center">
               <div className="text-4xl mb-4 flex justify-center">
                 <FaMobile className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />
@@ -172,7 +172,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
+            <div className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
                           p-6 rounded-lg text-center">
               <div className="text-4xl mb-4 flex justify-center">
                 <FaEthereum className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />

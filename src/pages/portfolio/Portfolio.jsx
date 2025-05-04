@@ -42,7 +42,7 @@ export const Works = () => {
               className={`px-4 py-2 rounded-md transition-all ${
                 filter === category 
                   ? "bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary text-white" 
-                  : "bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent hover:bg-opacity-80"
+                  : "bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent hover:bg-opacity-80"
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}

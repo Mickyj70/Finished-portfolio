@@ -125,7 +125,7 @@ export const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
                   />
                 </div>
                 
@@ -140,7 +140,7 @@ export const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
                   />
                 </div>
               </div>
@@ -156,7 +156,7 @@ export const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
                 />
               </div>
               
@@ -171,7 +171,7 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors resize-none text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
                 ></textarea>
               </div>
               
