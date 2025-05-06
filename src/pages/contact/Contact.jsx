@@ -35,7 +35,7 @@ export const Contact = () => {
   };
   
   return (
-    <section id="contact" className="section-container py-24">
+    <section id="contact" className="py-24 section-container">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,14 +45,14 @@ export const Contact = () => {
           className="mb-16"
         >
           <h2 className="section-title">Get In Touch</h2>
-          <div className="w-20 h-1 bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary mb-8"></div>
-          <p className="text-lg max-w-2xl">
+          <div className="mb-8 w-20 h-1 bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary"></div>
+          <p className="max-w-2xl text-lg">
             Have a project in mind or want to discuss a potential collaboration? 
             Feel free to reach out using the form below or through my contact details.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -63,11 +63,11 @@ export const Contact = () => {
           >
             <div className="space-y-8">
               <div className="flex items-start space-x-4">
-                <div className="bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary p-3 rounded-full text-white">
+                <div className="p-3 text-white rounded-full bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary">
                   <FaEnvelope />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-1">Email</h3>
+                  <h3 className="mb-1 text-lg font-semibold">Email</h3>
                   <p className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">
                     <a href="mailto:your.email@example.com" className="hover:underline">
                       michael.joseph77@gmail.com
@@ -77,11 +77,11 @@ export const Contact = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary p-3 rounded-full text-white">
+                <div className="p-3 text-white rounded-full bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary">
                   <FaPhone />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-1">Phone</h3>
+                  <h3 className="mb-1 text-lg font-semibold">Phone</h3>
                   <p className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">
                     <a href="tel:+2348063704557" className="hover:underline">
                       +234 806 370 4557	
@@ -91,11 +91,11 @@ export const Contact = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary p-3 rounded-full text-white">
+                <div className="p-3 text-white rounded-full bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary">
                   <FaMapMarkerAlt />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-1">Location</h3>
+                  <h3 className="mb-1 text-lg font-semibold">Location</h3>
                   <p className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">
                     Abuja, Nigeria
                   </p>
@@ -113,7 +113,7 @@ export const Contact = () => {
             className="lg:col-span-2"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="block mb-2 font-medium">
                     Your Name
@@ -125,7 +125,7 @@ export const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
+                    className="px-4 py-3 w-full rounded-md border border-transparent transition-colors bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
                   />
                 </div>
                 
@@ -140,7 +140,7 @@ export const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
+                    className="px-4 py-3 w-full rounded-md border border-transparent transition-colors bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
                   />
                 </div>
               </div>
@@ -156,7 +156,7 @@ export const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
+                  className="px-4 py-3 w-full rounded-md border border-transparent transition-colors bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
                 />
               </div>
               
@@ -171,14 +171,14 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 rounded-md bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent border border-transparent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none transition-colors resize-none text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
+                  className="px-4 py-3 w-full rounded-md border border-transparent transition-colors resize-none bg-dark-accent dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent focus:border-dark-primary dark:focus:border-dark-primary dim:focus:border-dim-primary light:focus:border-light-primary focus:outline-none text-dark-text dark:text-dark-text dim:text-dim-text light:text-light-text"
                 ></textarea>
               </div>
               
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-6 py-3 bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary text-white rounded-md flex items-center justify-center space-x-2 hover:opacity-90 transition-opacity disabled:opacity-70"
+                className="flex justify-center items-center px-6 py-3 space-x-2 text-white rounded-md transition-opacity bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary hover:opacity-90 disabled:opacity-70"
               >
                 {isSubmitting ? (
                   <span>Sending...</span>
@@ -194,7 +194,7 @@ export const Contact = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-500 bg-opacity-20 text-green-500 rounded-md"
+                  className="p-4 text-green-500 bg-green-500 bg-opacity-20 rounded-md"
                 >
                   Your message has been sent successfully!
                 </motion.div>
