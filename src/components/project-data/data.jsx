@@ -282,12 +282,78 @@ export const data = [
     ],
   },
   {
-    id: 9,
+    id: 10,
     title: "mikecrowdX",
     path: "https://mikefundx.vercel.app/",
     programs: "NEXT JS,TAILWIND CSS, FRAMER, ETHER, SOLIDITY ",
     img: "https://ik.imagekit.io/mickyj77/Screenshot%20(414).png?updatedAt=1746234370951",
     desc: "A website used for creating and funding of user campaigns on the blockchain",
+    year: 2025,
+    type: "Website",
+    github: "https://github.com/EmmaExcel/Travel2.0",
+    detailImage: [
+      {
+        id: 1,
+        imgUrl:
+          "https://framerusercontent.com/images/RGGWoF0v0bipS9MRA5yNeVX6IOo.png",
+      },
+      {
+        id: 2,
+        imgUrl:
+          "https://framerusercontent.com/images/gJSY14rM6txjgtDwKxxDMeoQ.png",
+      },
+      {
+        id: 3,
+        imgUrl:
+          "https://framerusercontent.com/images/GPCZTysTLH8quaOvO4uju1Qztw.png",
+      },
+      {
+        id: 4,
+        imgUrl:
+          "https://framerusercontent.com/images/bznxPD0Q7m5MkI2uPnUEfunPI.png",
+      },
+    ],
+  },
+  {
+    id: 11,
+    title: "stimmy",
+    path: "https://ctod-dev.vercel.app/new-pairs",
+    programs: "NEXT JS,TAILWIND CSS, FRAMER, ETHER, SOLIDITY ",
+    img: "https://ik.imagekit.io/mickyj77/download%20(2).png?updatedAt=1750854942016",
+    desc: "A website used for creating, buying and trading of coins on the platform",
+    year: 2024,
+    type: "Website",
+    github: "https://github.com/EmmaExcel/Travel2.0",
+    detailImage: [
+      {
+        id: 1,
+        imgUrl:
+          "https://framerusercontent.com/images/RGGWoF0v0bipS9MRA5yNeVX6IOo.png",
+      },
+      {
+        id: 2,
+        imgUrl:
+          "https://framerusercontent.com/images/gJSY14rM6txjgtDwKxxDMeoQ.png",
+      },
+      {
+        id: 3,
+        imgUrl:
+          "https://framerusercontent.com/images/GPCZTysTLH8quaOvO4uju1Qztw.png",
+      },
+      {
+        id: 4,
+        imgUrl:
+          "https://framerusercontent.com/images/bznxPD0Q7m5MkI2uPnUEfunPI.png",
+      },
+    ],
+  },
+  {
+    id: 12,
+    title: "meta mint",
+    path: "https://nft-marketplace-blond-one.vercel.app/",
+    programs: "NEXT JS,TAILWIND CSS, FRAMER, WAGMI, TANSTACK , SOLIDITY ",
+    img: "https://ik.imagekit.io/mickyj77/download%20(3).png?updatedAt=1750855192691",
+    desc: "A website used for creating,minting and buying of NFTs on the platform",
     year: 2025,
     type: "Website",
     github: "https://github.com/EmmaExcel/Travel2.0",
