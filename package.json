@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "api:dev": "bun run api/spotify.js",
+    "api:token": "bun run api/get-refresh-token.js",
+    "dev:all": "bunx concurrently -n vite,api -c cyan,green 'bun run dev' 'bun run api:dev'",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"

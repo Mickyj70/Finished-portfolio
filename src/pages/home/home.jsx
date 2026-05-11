@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import NowPlaying from "../../components/NowPlaying";
 
 const Home = () => {
   return (
@@ -16,11 +17,11 @@ const Home = () => {
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             Mike
           </h1>
-          
+
           <p className="text-lg font-medium text-neutral-700 dark:text-neutral-300">
             Software engineer building full‑stack products across web, mobile, and Web3.
           </p>
-          
+
           <div className="flex flex-wrap items-center gap-3">
             <a
               className="btn-primary"
@@ -45,8 +46,11 @@ const Home = () => {
               <span className="ml-2">Email</span>
             </a>
           </div>
-          
-          <div className="pt-4">
+
+          {/* Now Playing – polls every 10 s; click to expand album modal */}
+          <NowPlaying apiUrl={import.meta.env.VITE_NOW_PLAYING_API_URL ?? "/api/now-playing"} />
+
+          <div className="pt-2">
             <a
               href="#works"
               className="text-sm font-medium text-neutral-700 underline underline-offset-4 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"

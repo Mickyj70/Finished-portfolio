@@ -29,3 +29,161 @@
     @apply inline-flex items-center justify-center rounded-md border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900;
   }
 }
+
+/* ─── Now Playing ─────────────────────────────────────────────────── */
+
+@keyframes np-wave {
+  0%, 100% { transform: scaleY(0.4); }
+  50%       { transform: scaleY(1); }
+}
+
+@layer components {
+  /* compact pill */
+  .np-pill {
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200 cursor-default;
+    @apply border-neutral-200 bg-white/80 text-neutral-700 shadow-sm backdrop-blur-sm;
+    @apply dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300;
+  }
+  .np-pill--active {
+    @apply cursor-pointer hover:border-neutral-300 hover:shadow-md dark:hover:border-neutral-700;
+  }
+  .np-pill--idle {
+    @apply opacity-70;
+  }
+  .np-pill-thumb {
+    @apply h-5 w-5 rounded-full object-cover ring-1 ring-white/20;
+  }
+  .np-pill-title {
+    @apply max-w-[120px] truncate font-semibold;
+  }
+  .np-pill-sep {
+    @apply text-neutral-400 dark:text-neutral-600;
+  }
+  .np-pill-artist {
+    @apply max-w-[90px] truncate text-neutral-500 dark:text-neutral-400;
+  }
+  .np-pill-idle {
+    @apply italic text-neutral-400 dark:text-neutral-500;
+  }
+
+  /* audio wave */
+  .np-wave {
+    @apply flex items-center gap-[2px] shrink-0;
+  }
+  .np-bar {
+    @apply block h-3 w-[3px] rounded-full bg-red-500 dark:bg-red-400;
+    animation: np-wave 900ms ease-in-out infinite;
+  }
+
+  /* compact link pills (inside the homepage pill) */
+  .np-links-compact {
+    @apply flex shrink-0 items-center gap-1 ml-1;
+  }
+  .np-link-pill {
+    @apply grid h-5 w-5 place-items-center rounded-full border border-neutral-200 bg-white/60 text-neutral-700 transition-colors hover:border-neutral-300 hover:bg-white dark:border-neutral-700 dark:bg-neutral-800/60 dark:text-neutral-300 dark:hover:border-neutral-600 dark:hover:bg-neutral-800;
+  }
+
+  /* shared link icon */
+  .np-link-icon {
+    @apply h-3.5 w-3.5 shrink-0;
+  }
+
+  /* modal overlay */
+  .np-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* modal card */
+  .np-modal {
+    @apply relative w-full max-w-xs overflow-hidden rounded-2xl border shadow-2xl;
+    @apply border-neutral-200 bg-white dark:border-white/10 dark:bg-neutral-900;
+  }
+  .np-modal-bg {
+    @apply absolute inset-0 bg-cover bg-center opacity-[0.07] saturate-150;
+  }
+  .np-modal-close {
+    @apply absolute right-3 top-3 z-10 grid h-8 w-8 place-items-center rounded-full border text-sm leading-none transition-colors;
+    @apply border-neutral-200 bg-white/70 text-neutral-600 hover:text-neutral-900;
+    @apply dark:border-white/10 dark:bg-black/40 dark:text-neutral-400 dark:hover:text-white;
+  }
+  .np-modal-body {
+    @apply relative mt-4 min-w-0 px-5 pb-5;
+  }
+  .np-modal-header {
+    @apply flex items-center justify-between gap-4;
+  }
+  .np-modal-label {
+    @apply text-sm text-neutral-500 dark:text-neutral-400;
+  }
+  .np-modal-title {
+    @apply mt-2 text-xl font-semibold leading-tight text-neutral-900 dark:text-white;
+  }
+  .np-modal-artist {
+    @apply mt-1 text-sm text-neutral-600 dark:text-neutral-400;
+  }
+  .np-modal-album {
+    @apply mt-2 text-xs text-neutral-400 dark:text-neutral-500;
+  }
+  .np-modal-source {
+    @apply mt-4 inline-flex rounded-full border px-3 py-1 text-xs capitalize;
+    @apply border-neutral-200 text-neutral-500 dark:border-white/10 dark:text-neutral-400;
+  }
+
+  /* modal platform link grid */
+  .np-links-grid {
+    @apply mt-4 grid grid-cols-3 gap-2;
+  }
+  .np-link-btn {
+    @apply flex h-9 items-center justify-center gap-1.5 rounded-md border px-2 text-xs transition-colors;
+    @apply border-neutral-200 bg-neutral-50 text-neutral-700 hover:border-neutral-300 hover:bg-white;
+    @apply dark:border-white/10 dark:bg-white/[0.04] dark:text-neutral-400 dark:hover:border-white/20 dark:hover:bg-white/[0.08] dark:hover:text-white;
+  }
+  .np-link-label {
+    @apply truncate;
+  }
+
+  /* album cover */
+  .np-cover {
+    @apply relative shrink-0;
+  }
+  .np-cover-sm {
+    @apply h-14 w-14;
+  }
+  .np-cover-lg {
+    @apply h-56 w-full;
+  }
+  .np-cover-blur {
+    @apply absolute inset-0 rounded-md bg-cover bg-center opacity-40 blur-xl saturate-150;
+  }
+  .np-cover-shine {
+    @apply absolute inset-[-1px] rounded-md bg-gradient-to-br from-white/20 via-white/5 to-black/25 opacity-80;
+  }
+  .np-cover-img {
+    @apply relative h-full w-full rounded-md border border-white/10 object-cover shadow-lg;
+  }
+
+  /* progress bar (modal) */
+  .np-progress {
+    @apply mt-4 space-y-1;
+  }
+  .np-progress-bar {
+    @apply h-1 w-full overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700;
+  }
+  .np-progress-fill {
+    @apply h-full rounded-full bg-[#1ED760] transition-[width] duration-1000;
+  }
+  .np-progress-times {
+    @apply flex justify-between text-[10px] text-neutral-400 dark:text-neutral-500;
+  }
+
+  /* paused state */
+  .np-pill-paused {
+    @apply text-neutral-400 dark:text-neutral-500 text-xs;
+  }
+  .np-modal-paused {
+    @apply text-xs text-neutral-400 dark:text-neutral-500;
+  }
+}
