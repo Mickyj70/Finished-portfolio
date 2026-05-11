@@ -39,53 +39,81 @@
 
 @layer components {
   /* compact pill */
-  .np-pill {
-    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200 cursor-default;
-    @apply border-neutral-200 bg-white/80 text-neutral-700 shadow-sm backdrop-blur-sm;
-    @apply dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300;
+  /* ── Now Playing card (homepage) ── */
+  .np-card {
+    @apply flex items-center gap-4 rounded-xl border px-4 py-3 transition-all duration-200;
+    @apply border-neutral-200 bg-white/60 backdrop-blur-sm shadow-sm;
+    @apply dark:border-neutral-800 dark:bg-neutral-900/70;
+    max-width: 480px;
   }
-  .np-pill--active {
-    @apply cursor-pointer hover:border-neutral-300 hover:shadow-md dark:hover:border-neutral-700;
+  .np-card--active {
+    @apply cursor-pointer hover:border-neutral-300 hover:bg-white hover:shadow-md;
+    @apply dark:hover:border-neutral-700 dark:hover:bg-neutral-900;
   }
-  .np-pill--idle {
-    @apply opacity-70;
-  }
-  .np-pill-thumb {
-    @apply h-5 w-5 rounded-full object-cover ring-1 ring-white/20;
-  }
-  .np-pill-title {
-    @apply max-w-[120px] truncate font-semibold;
-  }
-  .np-pill-sep {
-    @apply text-neutral-400 dark:text-neutral-600;
-  }
-  .np-pill-artist {
-    @apply max-w-[90px] truncate text-neutral-500 dark:text-neutral-400;
-  }
-  .np-pill-idle {
-    @apply italic text-neutral-400 dark:text-neutral-500;
+  .np-card--idle {
+    @apply cursor-default opacity-60;
   }
 
-  /* audio wave */
+  /* album thumbnail */
+  .np-card-art {
+    @apply h-14 w-14 shrink-0 rounded-lg object-cover shadow-sm;
+    @apply ring-1 ring-black/10 dark:ring-white/10;
+  }
+
+  /* text stack */
+  .np-card-text {
+    @apply flex min-w-0 flex-1 flex-col gap-0.5;
+  }
+  .np-card-label {
+    @apply text-[11px] font-medium uppercase tracking-wider text-neutral-400 dark:text-neutral-500;
+  }
+  .np-card-title {
+    @apply truncate text-sm font-semibold text-neutral-900 dark:text-white;
+  }
+  .np-card-artist {
+    @apply truncate text-xs text-neutral-500 dark:text-neutral-400;
+  }
+  .np-card-idle {
+    @apply text-sm italic text-neutral-400 dark:text-neutral-500;
+  }
+
+  /* right cluster: wave + links */
+  .np-card-right {
+    @apply flex shrink-0 items-center gap-2;
+  }
+
+  /* audio wave – Spotify green bars */
   .np-wave {
     @apply flex items-center gap-[2px] shrink-0;
   }
   .np-bar {
-    @apply block h-3 w-[3px] rounded-full bg-red-500 dark:bg-red-400;
+    @apply block w-[3px] rounded-full bg-[#1ED760];
     animation: np-wave 900ms ease-in-out infinite;
   }
+  .np-bar:nth-child(1) { height: 8px;  animation-delay: 0ms; }
+  .np-bar:nth-child(2) { height: 14px; animation-delay: 120ms; }
+  .np-bar:nth-child(3) { height: 10px; animation-delay: 80ms; }
+  .np-bar:nth-child(4) { height: 16px; animation-delay: 200ms; }
+  .np-bar:nth-child(5) { height: 8px;  animation-delay: 160ms; }
 
-  /* compact link pills (inside the homepage pill) */
+  /* compact icon links (inside the card) */
   .np-links-compact {
-    @apply flex shrink-0 items-center gap-1 ml-1;
+    @apply flex shrink-0 items-center gap-1;
   }
   .np-link-pill {
-    @apply grid h-5 w-5 place-items-center rounded-full border border-neutral-200 bg-white/60 text-neutral-700 transition-colors hover:border-neutral-300 hover:bg-white dark:border-neutral-700 dark:bg-neutral-800/60 dark:text-neutral-300 dark:hover:border-neutral-600 dark:hover:bg-neutral-800;
+    @apply grid h-7 w-7 place-items-center rounded-full border transition-colors;
+    @apply border-neutral-200 bg-white/70 text-neutral-600 hover:border-neutral-300 hover:bg-white;
+    @apply dark:border-neutral-700 dark:bg-neutral-800/70 dark:text-neutral-300 dark:hover:border-neutral-600 dark:hover:bg-neutral-800;
   }
 
-  /* shared link icon */
+  /* shared link icon size */
   .np-link-icon {
     @apply h-3.5 w-3.5 shrink-0;
+  }
+
+  /* paused badges */
+  .np-pill-paused {
+    @apply text-neutral-400 dark:text-neutral-500 text-xs;
   }
 
   /* modal overlay */

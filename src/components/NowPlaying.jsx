@@ -178,43 +178,49 @@ export default function NowPlaying({ apiUrl = API_URL }) {
     };
   }, [apiUrl]);
 
-  // Compact pill shown on the home page
-  const pill = (
+  // Card shown on the home page (matches reference design)
+  const card = (
     <AnimatePresence mode="wait">
       {loaded && (
-        <motion.button
+        <motion.div
           key={track ? "track" : "idle"}
-          type="button"
-          onClick={() => track && setIsOpen(true)}
-          initial={{ opacity: 0, y: 6 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -6 }}
-          transition={{ duration: 0.35 }}
-          className={`np-pill ${track ? "np-pill--active" : "np-pill--idle"}`}
-          aria-label={track ? `Now playing: ${track.title} by ${track.artist}` : "Not listening to anything right now"}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.4 }}
+          className={`np-card ${track ? "np-card--active" : "np-card--idle"}`}
+          role={track ? "button" : undefined}
+          tabIndex={track ? 0 : undefined}
+          onClick={() => track && setIsOpen(true)}
+          onKeyDown={(e) => e.key === "Enter" && track && setIsOpen(true)}
+          aria-label={track ? `Now playing: ${track.title} by ${track.artist}. Click to expand.` : undefined}
         >
           {track ? (
             <>
               {track.image && (
                 <img
                   src={track.image}
-                  alt=""
-                  className="np-pill-thumb"
+                  alt={track.album ?? track.title}
+                  className="np-card-art"
                   loading="lazy"
                 />
               )}
-              {track.isPlaying ? <AudioWave /> : (
-                <span className="np-pill-paused" aria-label="Paused">⏸</span>
-              )}
-              <span className="np-pill-title">{track.title}</span>
-              <span className="np-pill-sep">·</span>
-              <span className="np-pill-artist">{track.artist}</span>
-              <MusicLinks track={track} compact />
+              <div className="np-card-text">
+                <span className="np-card-label">I&apos;m currently listening to</span>
+                <span className="np-card-title">{track.title}</span>
+                <span className="np-card-artist">{track.artist}</span>
+              </div>
+              <div className="np-card-right">
+                {track.isPlaying ? <AudioWave /> : (
+                  <span className="np-pill-paused" aria-label="Paused">⏸</span>
+                )}
+                <MusicLinks track={track} compact />
+              </div>
             </>
           ) : (
-            <span className="np-pill-idle">Not listening to anything right now</span>
+            <span className="np-card-idle">Not listening to anything right now</span>
           )}
-        </motion.button>
+        </motion.div>
       )}
     </AnimatePresence>
   );
@@ -275,7 +281,7 @@ export default function NowPlaying({ apiUrl = API_URL }) {
 
   return (
     <>
-      {pill}
+      {card}
       {modal}
     </>
   );
