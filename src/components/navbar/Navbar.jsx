@@ -26,17 +26,23 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-opacity-90 backdrop-blur-sm shadow-md py-2' : 'py-4'
-    }`}>
-      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+    <nav
+      className={`fixed top-0 left-0 z-50 w-full border-b transition-all duration-300 ${
+        scrolled
+          ? "border-neutral-200 bg-white/80 py-2 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/80"
+          : "border-transparent bg-transparent py-4"
+      }`}
+    >
+      <div className="mx-auto flex max-w-4xl items-center justify-between px-4">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-2xl font-bold"
+          className="text-base font-semibold tracking-tight"
         >
-          MIKE <span className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">DEV</span>
+          <a href="/#" className="hover:opacity-80">
+            Mike Dev
+          </a>
         </motion.div>
         
         {/* Desktop Menu */}
@@ -44,34 +50,33 @@ const Navbar = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, staggerChildren: 0.1 }}
-          className="hidden md:flex space-x-8"
+          className="hidden items-center gap-6 md:flex"
         >
           {["Home", "About", "Works", "Contact"].map((item) => (
             <motion.li 
               key={item}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="relative group"
+              className="text-sm"
             >
               <a 
                 href={item === "Home" ? "/#" : `#${item.toLowerCase()}`} 
                 onClick={closeMenu}
-                className="font-medium transition-colors hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary"
+                className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
               >
                 {item}
               </a>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary transition-all group-hover:w-full"></span>
             </motion.li>
           ))}
         </motion.ul>
         
         {/* Social Icons */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden items-center gap-3 md:flex">
           <a 
             href="https://github.com/Mickyj70" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-xl hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors"
+            className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             aria-label="GitHub"
           >
             <FaGithub />
@@ -80,7 +85,7 @@ const Navbar = () => {
             href="https://x.com/IAmMicky7" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-xl hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors"
+            className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             aria-label="twitter"
           >
             <FaTwitter />
@@ -89,16 +94,17 @@ const Navbar = () => {
             href="https://wa.link/hzr6ow" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-xl hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors"
+            className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             aria-label="WhatsApp"
           >
             <FaWhatsapp />
           </a>
+          <ThemeSwitcher />
         </div>
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-2xl"
+          className="rounded-md border border-neutral-200 bg-white p-2 text-xl text-neutral-900 shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900 md:hidden"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -112,16 +118,16 @@ const Navbar = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-opacity-95 backdrop-blur-md"
+          className="md:hidden border-t border-neutral-200 bg-white/95 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95"
         >
-          <div className="container mx-auto px-4 py-4">
+          <div className="mx-auto max-w-4xl px-4 py-4">
             <ul className="flex flex-col space-y-4">
               {["Home", "About", "Works", "Contact"].map((item) => (
                 <li key={item}>
                   <a 
                     href={item === "Home" ? "/#" : `#${item.toLowerCase()}`} 
                     onClick={closeMenu}
-                    className="block py-2 font-medium transition-colors hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary"
+                    className="block py-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
                   >
                     {item}
                   </a>
@@ -129,12 +135,13 @@ const Navbar = () => {
               ))}
             </ul>
             
-            <div className="flex space-x-6 mt-6 pt-4 border-t border-gray-700">
+            <div className="mt-6 flex items-center justify-between border-t border-neutral-200 pt-4 dark:border-neutral-800">
+              <div className="flex items-center gap-5">
               <a 
                 href="https://github.com/Mickyj70" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-xl hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors"
+                className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
                 aria-label="GitHub"
               >
                 <FaGithub />
@@ -143,7 +150,7 @@ const Navbar = () => {
                 href="http://instagram.com/mike_dev7?igshid=NGVhN2U2NjQ0Yg==" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-xl hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors"
+                className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
                 aria-label="Instagram"
               >
                 <FaInstagram />
@@ -152,18 +159,17 @@ const Navbar = () => {
                 href="https://wa.link/hzr6ow" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-xl hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors"
+                className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
                 aria-label="WhatsApp"
               >
                 <FaWhatsapp />
               </a>
+              </div>
+              <ThemeSwitcher />
             </div>
           </div>
         </motion.div>
       )}
-      
-      {/* Theme Switcher */}
-      <ThemeSwitcher />
     </nav>
   );
 };

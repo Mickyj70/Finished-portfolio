@@ -1,48 +1,20 @@
-import { useTheme } from '../context/ThemeContext';
-import { FaMoon, FaSun } from 'react-icons/fa';
-import { BsCloudMoon } from 'react-icons/bs';
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useTheme } from "../context/useTheme";
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
-    <div className="fixed top-24 right-6 z-50 flex flex-col gap-2 bg-opacity-80 backdrop-blur-sm p-2 rounded-full">
-      <button
-        onClick={() => toggleTheme('dark')}
-        className={`p-2 rounded-full transition-all ${
-          theme === 'dark' 
-            ? 'bg-dark-primary text-white scale-110' 
-            : 'text-gray-400 hover:text-gray-100'
-        }`}
-        aria-label="Dark theme"
-      >
-        <FaMoon />
-      </button>
-      
-      <button
-        onClick={() => toggleTheme('dim')}
-        className={`p-2 rounded-full transition-all ${
-          theme === 'dim' 
-            ? 'bg-dim-primary text-white scale-110' 
-            : 'text-gray-400 hover:text-gray-100'
-        }`}
-        aria-label="Dim theme"
-      >
-        <BsCloudMoon />
-      </button>
-      
-      <button
-        onClick={() => toggleTheme('light')}
-        className={`p-2 rounded-full transition-all ${
-          theme === 'light' 
-            ? 'bg-light-primary text-white scale-110' 
-            : 'text-gray-400 hover:text-gray-100'
-        }`}
-        aria-label="Light theme"
-      >
-        <FaSun />
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className="inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-neutral-900 shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900"
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {isDark ? <FaSun /> : <FaMoon />}
+      <span className="hidden sm:inline">{isDark ? "Light" : "Dark"}</span>
+    </button>
   );
 };
 

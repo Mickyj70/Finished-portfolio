@@ -1,193 +1,110 @@
 
 import { motion } from "framer-motion";
-import { FaCode, FaServer, FaEthereum, FaMobile } from "react-icons/fa";
+import PropTypes from "prop-types";
 
 const About = () => {
   const frontendSkills = [
-    "HTML5", "CSS3", "JavaScript", "React.js", "Angular", 
-    "Next.js", "Vue.js", "React Native", "Tailwind CSS", 
-    "Chakra UI", "Material UI", "WordPress"
+    "JavaScript",
+    "React",
+    "Vue.js",
+    "Angular",
+    "Next.js",
+    "Tailwind CSS",
+    "Framer Motion",
+    "React Native",
+
   ];
 
   const backendSkills = [
-    "Node.js", "Python (Django)", "Express.js", "PHP", 
-    "Laravel", "SQL", "NoSQL", "RESTful APIs"
+    "Node.js",
+    "Nest.js",
+    "Laravel",
+    "Django",
+    "Express",
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "Redis",
+    "REST APIs",
   ];
 
   const blockchainSkills = [
-    "Solidity", "Web3.js", "Ether.js", "Smart Contracts", 
-    "DApps", "Ethereum", "BSC", "Polygon"
+    "Solidity",
+    "Ethers.js",
+    "Smart contracts",
+    "Ethereum",
   ];
 
   return (
-    <section id="about" className="section-container py-24">
-      <div className="container mx-auto">
+    <section id="about" className="section-container">
+      <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-8"
         >
-          <h2 className="section-title">About Me</h2>
-          <div className="w-20 h-1 bg-dark-primary dark:bg-dark-primary dim:bg-dim-primary light:bg-light-primary mb-8"></div>
+          <h2 className="section-title">About</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-neutral-700 dark:text-neutral-300">
+            I build product-focused web apps end‑to‑end: clean UI, fast APIs, and reliable systems. I care about
+            performance, clarity, and shipping.
+          </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-2xl font-semibold mb-6">Who I Am</h3>
-            <p className="text-lg mb-6">
-              I&apos;m a versatile developer with expertise spanning web, mobile, and blockchain technologies. 
-              My passion lies in creating comprehensive digital solutions that work seamlessly across platforms, 
-              from responsive websites to native mobile apps and decentralized blockchain applications.
-            </p>
-            <p className="text-lg mb-6">
-              With a strong foundation in both traditional and emerging technologies, I bridge the gap between 
-              web, mobile, and Web3 ecosystems. I specialize in creating unified experiences that leverage the 
-              strengths of each platform while maintaining a cohesive product vision. My goal is to build 
-              innovative, user-centered applications that solve real-world problems across any device or platform.
-            </p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="text-2xl font-semibold mb-6">My Skills</h3>
-            
-            <div className="mb-6">
-              <h4 className="text-xl font-medium mb-3 text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">
-                Frontend Development
-              </h4>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {frontendSkills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.05 * index }}
-                    className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
-                               px-3 py-2 rounded-md text-center text-sm"
-                  >
-                    {skill}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="mb-6">
-              <h4 className="text-xl font-medium mb-3 text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">
-                Backend Development
-              </h4>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {backendSkills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.05 * index }}
-                    className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
-                               px-3 py-2 rounded-md text-center text-sm"
-                  >
-                    {skill}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="text-xl font-medium mb-3 text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary">
-                Blockchain Development
-              </h4>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {blockchainSkills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.05 * index }}
-                    className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
-                               px-3 py-2 rounded-md text-center text-sm"
-                  >
-                    {skill}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16"
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="rounded-lg border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950"
         >
-          <h3 className="text-2xl font-semibold mb-8 text-center">What I Do</h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
-                          p-6 rounded-lg text-center">
-              <div className="text-4xl mb-4 flex justify-center">
-                <FaCode className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">Frontend Development</h4>
-              <p>
-                I craft responsive, interactive user interfaces using modern frameworks like React, Angular, and Vue, 
-                with a focus on performance and accessibility.
+          <div className="flex flex-col gap-6">
+            <div>
+              <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                Focus
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-neutral-700 dark:text-neutral-300">
+                Full‑stack web apps, marketplace/e‑commerce workflows, dashboards, and Web3 integrations when it makes
+                sense.
               </p>
             </div>
-            
-            <div className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
-                          p-6 rounded-lg text-center">
-              <div className="text-4xl mb-4 flex justify-center">
-                <FaServer className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">Backend Development</h4>
-              <p>
-                I build robust server-side applications with Node.js, Python, and PHP, creating scalable APIs 
-                and efficient database solutions.
-              </p>
-            </div>
-            
-            <div className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
-                          p-6 rounded-lg text-center">
-              <div className="text-4xl mb-4 flex justify-center">
-                <FaMobile className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">Mobile App Development</h4>
-              <p>
-                I develop cross-platform mobile applications using React Native and Ionic React that deliver 
-                native-like experiences on both iOS and Android devices.
-              </p>
-            </div>
-            
-            <div className="bg-dark-accent text-white dark:bg-dark-accent dim:bg-dim-accent light:bg-light-accent 
-                          p-6 rounded-lg text-center">
-              <div className="text-4xl mb-4 flex justify-center">
-                <FaEthereum className="text-dark-primary dark:text-dark-primary dim:text-dim-primary light:text-light-primary" />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">Blockchain Development</h4>
-              <p>
-                I develop smart contracts and decentralized applications on Ethereum, BSC, and Polygon, 
-                connecting Web2 and Web3 technologies.
-              </p>
+
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <SkillGroup title="Frontend" skills={frontendSkills} />
+              <SkillGroup title="Backend" skills={backendSkills} />
+              <SkillGroup title="Web3" skills={blockchainSkills} />
             </div>
           </div>
         </motion.div>
       </div>
     </section>
   );
-}
+};
+
+const SkillGroup = ({ title, skills }) => {
+  return (
+    <div className="min-w-0">
+      <h4 className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+        {title}
+      </h4>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <span
+            key={skill}
+            className="rounded-md border border-neutral-200 bg-white px-2.5 py-1 text-xs font-medium text-neutral-700 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+SkillGroup.propTypes = {
+  title: PropTypes.string.isRequired,
+  skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default About;

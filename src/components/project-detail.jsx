@@ -2,7 +2,6 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { data } from "./project-data/data";
 import { FaArrowLeft, FaArrowRight, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import "./project-detail.css";
 
 export const ProjectDetail = () => {
   const { id } = useParams();
@@ -27,23 +26,30 @@ export const ProjectDetail = () => {
   const nextProject = currentIndex < data.length - 1 ? data[currentIndex + 1] : data[0];
 
   return (
-    <section className="section-container py-24">
-      <div className="container mx-auto">
+    <section className="section-container pt-28">
+      <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-8"
         >
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-0">{project.title}</h1>
-            <div className="flex gap-4">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{project.title}</h1>
+              <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                {project.year ? `${project.year}` : null}
+                {project.year && project.type ? " · " : null}
+                {project.type || null}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
               {project.github && (
                 <a 
                   href={project.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors border-b border-dark-primary dark:border-dark-primary dim:border-dim-primary light:border-light-primary"
+                  className="btn-primary"
                 >
                   <FaGithub />
                   <span>GitHub</span>
@@ -54,28 +60,29 @@ export const ProjectDetail = () => {
                   href={project.path} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary hover:text-dark-primary dark:hover:text-dark-primary dim:hover:text-dim-primary light:hover:text-light-primary transition-colors border-b border-dark-primary dark:border-dark-primary dim:border-dim-primary light:border-light-primary"
+                  className="btn-primary"
                 >
                   <FaExternalLinkAlt />
-                  <span>Live Demo</span>
+                  <span>Live</span>
                 </a>
               )}
             </div>
           </div>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <h2 className="text-xl font-semibold mb-4 text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">
+            <h2 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">
               Project Overview
             </h2>
-            <p className="text-lg mb-6">
-              {project.description || "This is a detailed description of the project, including its purpose, features, and technologies used."}
+            <p className="mt-3 text-sm leading-6 text-neutral-700 dark:text-neutral-300">
+              {project.desc ||
+                "This is a detailed description of the project, including its purpose, features, and technologies used."}
             </p>
           </motion.div>
           
@@ -85,20 +92,18 @@ export const ProjectDetail = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-1"
           >
-            <div className="space-y-4">
-              <div className="flex justify-between py-2 border-b border-dark-secondary dark:border-dark-secondary dim:border-dim-secondary light:border-light-secondary border-opacity-30">
-                <span className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">Client</span>
-                <span>{project.client || "Personal Project"}</span>
+            <div className="rounded-lg border border-neutral-200 bg-white p-4 text-sm dark:border-neutral-800 dark:bg-neutral-950">
+              <div className="flex items-center justify-between py-2">
+                <span className="text-neutral-600 dark:text-neutral-400">Client</span>
+                <span className="font-medium">{project.client || "Personal"}</span>
               </div>
-              
-              <div className="flex justify-between py-2 border-b border-dark-secondary dark:border-dark-secondary dim:border-dim-secondary light:border-light-secondary border-opacity-30">
-                <span className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">Year</span>
-                <span>{project.year || "2023"}</span>
+              <div className="flex items-center justify-between border-t border-neutral-200 py-2 dark:border-neutral-800">
+                <span className="text-neutral-600 dark:text-neutral-400">Year</span>
+                <span className="font-medium">{project.year || "—"}</span>
               </div>
-              
-              <div className="flex justify-between py-2">
-                <span className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">Type</span>
-                <span>{project.type}</span>
+              <div className="flex items-center justify-between border-t border-neutral-200 py-2 dark:border-neutral-800">
+                <span className="text-neutral-600 dark:text-neutral-400">Type</span>
+                <span className="font-medium">{project.type || "—"}</span>
               </div>
             </div>
           </motion.div>
@@ -108,21 +113,21 @@ export const ProjectDetail = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-16"
+          className="mt-10"
         >
-          <div className="space-y-8">
+          <div className="space-y-6">
             <img 
               src={project.img} 
               alt={project.title} 
-              className="w-full rounded-lg shadow-lg"
+              className="w-full rounded-lg border border-neutral-200 dark:border-neutral-800"
             />
             
-            {project.additionalImages && project.additionalImages.map((img, index) => (
+            {project.detailImage && project.detailImage.map((img) => (
               <img 
-                key={index}
-                src={img} 
-                alt={`${project.title} - Image ${index + 2}`} 
-                className="w-full rounded-lg shadow-lg"
+                key={img.id}
+                src={img.imgUrl} 
+                alt={`${project.title} detail ${img.id}`} 
+                className="w-full rounded-lg border border-neutral-200 dark:border-neutral-800"
               />
             ))}
           </div>
@@ -132,26 +137,26 @@ export const ProjectDetail = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col md:flex-row justify-between items-center"
+          className="mt-10 flex flex-col justify-between gap-6 border-t border-neutral-200 pt-8 dark:border-neutral-800 md:flex-row md:items-center"
         >
           <Link 
             to={`/projectdetail/${prevProject.id}`}
-            className="flex items-center gap-2 group mb-4 md:mb-0"
+            className="group flex items-center gap-3"
           >
             <FaArrowLeft className="transition-transform group-hover:-translate-x-2" />
             <div>
-              <p className="text-xl font-semibold">{prevProject.title}</p>
-              <p className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">Previous Project</p>
+              <p className="text-sm font-semibold">{prevProject.title}</p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">Previous</p>
             </div>
           </Link>
           
           <Link 
             to={`/projectdetail/${nextProject.id}`}
-            className="flex items-center gap-2 group text-right"
+            className="group flex items-center gap-3 text-right"
           >
             <div>
-              <p className="text-xl font-semibold">{nextProject.title}</p>
-              <p className="text-dark-secondary dark:text-dark-secondary dim:text-dim-secondary light:text-light-secondary">Next Project</p>
+              <p className="text-sm font-semibold">{nextProject.title}</p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">Next</p>
             </div>
             <FaArrowRight className="transition-transform group-hover:translate-x-2" />
           </Link>

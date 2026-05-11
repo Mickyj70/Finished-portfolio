@@ -8,54 +8,24 @@
   }
   
   body {
-    @apply font-poppins transition-colors duration-200;
+    @apply font-poppins bg-white text-neutral-900 antialiased transition-colors duration-200 dark:bg-neutral-950 dark:text-neutral-100;
+  }
+
+  ::selection {
+    @apply bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900;
   }
 }
 
 @layer components {
   .section-container {
-    @apply w-full min-h-screen px-4 md:px-8 lg:px-16 py-16;
+    @apply w-full px-4 md:px-8 lg:px-16 py-16;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-8;
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
   }
   
   .btn-primary {
-    @apply px-6 py-3 rounded-md transition-all duration-300 relative overflow-hidden
-    border border-transparent hover:border-current
-    before:content-[''] before:absolute before:w-1 before:h-1 before:top-0 before:left-0 before:transition-colors
-    after:content-[''] after:absolute after:w-1 after:h-1 after:bottom-0 after:right-0 after:transition-colors;
+    @apply inline-flex items-center justify-center rounded-md border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900;
   }
-}
-
-/* Theme specific styles */
-.theme-dark {
-  @apply bg-dark-background text-dark-text;
-}
-
-.theme-dark .btn-primary {
-  @apply bg-dark-accent text-dark-secondary hover:text-white hover:border-dark-primary
-  before:bg-dark-accent hover:before:bg-white
-  after:bg-dark-primary hover:after:bg-white;
-}
-
-.theme-dim {
-  @apply bg-dim-background text-dim-text;
-}
-
-.theme-dim .btn-primary {
-  @apply bg-dim-accent text-dim-secondary hover:text-white hover:border-dim-primary
-  before:bg-dim-accent hover:before:bg-white
-  after:bg-dim-primary hover:after:bg-white;
-}
-
-.theme-light {
-  @apply bg-light-background text-light-text;
-}
-
-.theme-light .btn-primary {
-  @apply bg-light-accent text-light-secondary hover:text-light-text hover:border-light-primary
-  before:bg-light-accent hover:before:bg-light-text
-  after:bg-light-primary hover:after:bg-light-text;
 }
