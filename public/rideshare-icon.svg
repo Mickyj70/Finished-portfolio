@@ -1,0 +1,22 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="28" y1="24" x2="220" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C8A71"/>
+      <stop offset="1" stop-color="#1BC28D"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(204 54) rotate(127.812) scale(82.7545)">
+      <stop stop-color="#7EF2C8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#7EF2C8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="16" y="16" width="224" height="224" rx="56" fill="url(#bg)"/>
+  <circle cx="196" cy="60" r="52" fill="url(#glow)"/>
+  <path d="M128 46C98.7289 46 75 69.7289 75 99C75 138.75 128 201 128 201C128 201 181 138.75 181 99C181 69.7289 157.271 46 128 46Z" fill="white"/>
+  <path d="M112 186C130 168.667 140.667 152.667 144 138C147.333 123.333 161 113.333 185 108" stroke="#7EF2C8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M96 115C96 109.477 100.477 105 106 105H150C155.523 105 160 109.477 160 115V131C160 134.314 157.314 137 154 137H102C98.6863 137 96 134.314 96 131V115Z" fill="#0B6D59"/>
+  <path d="M107 100C108.838 92.4264 115.62 87 123.414 87H132.586C140.38 87 147.162 92.4264 149 100H107Z" fill="#0B6D59"/>
+  <path d="M109 119C113.418 119 117 116.761 117 114C117 111.239 113.418 109 109 109C104.582 109 101 111.239 101 114C101 116.761 104.582 119 109 119Z" fill="white"/>
+  <path d="M147 119C151.418 119 155 116.761 155 114C155 111.239 151.418 109 147 109C142.582 109 139 111.239 139 114C139 116.761 142.582 119 147 119Z" fill="white"/>
+  <circle cx="111" cy="136" r="8" fill="#0B6D59"/>
+  <circle cx="145" cy="136" r="8" fill="#0B6D59"/>
+</svg>

@@ -1,5 +1,18 @@
 export const data = [
   {
+    id: 1,
+    title: "Rideshare",
+    path: "https://rideshare-frontend-nine.vercel.app/",
+    programs:
+      "NEXT JS, REACT, TYPESCRIPT, TAILWIND CSS, NEST JS, DRIZZLE ORM, POSTGRESQL, SOCKET.IO, MAPBOX, PAYSTACK, CLOUDFLARE R2",
+    img: "/rideshare-icon.svg",
+    desc: "Built a full-stack rideshare and corporate carpooling platform for verified riders, drivers, and companies. The product supports safe pickup/dropoff stops, route matching, wallet funding and driver withdrawals, KYC document uploads, email verification, trip receipts, realtime booking updates, trip lifecycle tracking, driver compliance checks, and admin dashboards for users, rides, disputes, finance, and settings.",
+    year: 2026,
+    type: "Fullstack",
+    github: "https://github.com/Mickyj70/rideshare-backend",
+    detailImage: [{ id: 1, imgUrl: "/rideshare-icon.svg" }],
+  },
+  {
     id: 2,
     title: "Para",
     path: "https://www.para.africa/",
