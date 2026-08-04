@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from "react";
 import { FaInstagram, FaGithub, FaWhatsapp, FaTimes, FaTwitter } from "react-icons/fa";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import ThemeSwitcher from "../ThemeSwitcher";
 
 const Navbar = () => {
@@ -25,6 +25,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/#about" },
+    { name: "Works", path: "/#works" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/#contact" },
+  ];
+
   return (
     <nav
       className={`fixed top-0 left-0 z-50 w-full border-b transition-all duration-300 ${
@@ -40,9 +48,9 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
           className="text-base font-semibold tracking-tight"
         >
-          <a href="/#" className="hover:opacity-80">
+          <Link to="/" className="hover:opacity-80">
             Mike Dev
-          </a>
+          </Link>
         </motion.div>
         
         {/* Desktop Menu */}
@@ -52,20 +60,30 @@ const Navbar = () => {
           transition={{ duration: 0.5, staggerChildren: 0.1 }}
           className="hidden items-center gap-6 md:flex"
         >
-          {["Home", "About", "Works", "Contact"].map((item) => (
+          {menuItems.map((item) => (
             <motion.li 
-              key={item}
+              key={item.name}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-sm"
             >
-              <a 
-                href={item === "Home" ? "/#" : `#${item.toLowerCase()}`} 
-                onClick={closeMenu}
-                className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-              >
-                {item}
-              </a>
+              {item.path.startsWith("/#") || item.path === "/" ? (
+                <a 
+                  href={item.path} 
+                  onClick={closeMenu}
+                  className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link 
+                  to={item.path} 
+                  onClick={closeMenu}
+                  className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  {item.name}
+                </Link>
+              )}
             </motion.li>
           ))}
         </motion.ul>
@@ -122,15 +140,25 @@ const Navbar = () => {
         >
           <div className="mx-auto max-w-4xl px-4 py-4">
             <ul className="flex flex-col space-y-4">
-              {["Home", "About", "Works", "Contact"].map((item) => (
-                <li key={item}>
-                  <a 
-                    href={item === "Home" ? "/#" : `#${item.toLowerCase()}`} 
-                    onClick={closeMenu}
-                    className="block py-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
-                  >
-                    {item}
-                  </a>
+              {menuItems.map((item) => (
+                <li key={item.name}>
+                  {item.path.startsWith("/#") || item.path === "/" ? (
+                    <a 
+                      href={item.path} 
+                      onClick={closeMenu}
+                      className="block py-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link 
+                      to={item.path} 
+                      onClick={closeMenu}
+                      className="block py-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
