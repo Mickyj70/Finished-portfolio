@@ -6,7 +6,7 @@ export const data = [
     programs:
       "NEXT JS, REACT, TYPESCRIPT, TAILWIND CSS, NEST JS, DRIZZLE ORM, POSTGRESQL, SOCKET.IO, MAPBOX, PAYSTACK, CLOUDFLARE R2",
     img: "/rideshare-icon.svg",
-    desc: "Built a full-stack rideshare and corporate carpooling platform for verified riders, drivers, and companies. The product supports safe pickup/dropoff stops, route matching, wallet funding and driver withdrawals, KYC document uploads, email verification, trip receipts, realtime booking updates, trip lifecycle tracking, driver compliance checks, and admin dashboards for users, rides, disputes, finance, and settings.",
+    desc: "Built a full-stack rideshare and corporate carpooling platform for verified riders, drivers, and companies, with a companion mobile app currently in development. The product supports safe pickup/dropoff stops, route matching, wallet funding and driver withdrawals, KYC document uploads, email verification, trip receipts, realtime booking updates, trip lifecycle tracking, driver compliance checks, and admin dashboards for users, rides, disputes, finance, and settings.",
     year: 2026,
     type: "Fullstack",
     github: "https://github.com/Mickyj70/rideshare-backend",
