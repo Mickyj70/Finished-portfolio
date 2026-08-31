@@ -34,7 +34,7 @@ export const data = [
       {
         id: 1,
         imgUrl:
-          "https://vault-fawn.vercel.app/_next/static/media/preloader_logo.09lle5hb.du45.svg",
+          "https://www.vault.buzz/_next/static/media/preloader_logo.09lle5hb.du45.svg",
       },
     ],
   },
