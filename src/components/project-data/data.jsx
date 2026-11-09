@@ -25,8 +25,8 @@ export const data = [
   {
     id: 3,
     title: "Vault",
-    path: "https://vault-fawn.vercel.app/",
-    img: "https://vault-fawn.vercel.app/_next/static/media/preloader_logo.09lle5hb.du45.svg",
+    path: "https://www.vault.buzz/",
+    img: "https://www.vault.buzz/_next/static/media/preloader_logo.09lle5hb.du45.svg",
     desc: "Built a platform where brands and creators can post content, license it, and let companies use that content with clear usage rights.",
     year: 2026,
     type: "Fullstack",
@@ -34,7 +34,7 @@ export const data = [
       {
         id: 1,
         imgUrl:
-          "https://vault-fawn.vercel.app/_next/static/media/preloader_logo.09lle5hb.du45.svg",
+          "https://www.vault.buzz/_next/static/media/preloader_logo.09lle5hb.du45.svg",
       },
     ],
   },
