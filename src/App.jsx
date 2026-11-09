@@ -4,15 +4,15 @@ import "./App.css";
 import Home from "./pages/home/home";
 import About from "./pages/about/about";
 import { Works } from "./pages/portfolio/Portfolio";
-import ThemeSwitcher from "./components/ThemeSwitcher";
+import { Contact } from "./pages/contact/Contact";
 
 function App() {
   return (
     <>
-      <ThemeSwitcher />
       <Home />
       <About />
       <Works />
+      <Contact />
     </>
   );
 }

@@ -1,9 +1,25 @@
 import { useState, useEffect } from "react";
-import { FaInstagram, FaGithub, FaWhatsapp, FaTimes, FaTwitter } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ThemeSwitcher from "../ThemeSwitcher";
+
+const menuItems = [
+  { name: "Home", target: "#home" },
+  { name: "About", target: "#about" },
+  { name: "Works", target: "#works" },
+  { name: "Blog", target: "/blog" },
+  { name: "Contact", target: "#contact" },
+];
+
+function NavbarLink({ target, ...props }) {
+  const { pathname } = useLocation();
+
+  if (!target.startsWith("#")) return <Link to={target} {...props} />;
+  if (pathname === "/") return <a href={target} {...props} />;
+  return <Link to={`/${target}`} {...props} />;
+}
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,14 +41,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/#about" },
-    { name: "Works", path: "/#works" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/#contact" },
-  ];
-
   return (
     <nav
       className={`fixed top-0 left-0 z-50 w-full border-b transition-all duration-300 ${
@@ -48,9 +56,9 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
           className="text-base font-semibold tracking-tight"
         >
-          <Link to="/" className="hover:opacity-80">
+          <NavbarLink target="#home" onClick={closeMenu} className="hover:opacity-80">
             Mike Dev
-          </Link>
+          </NavbarLink>
         </motion.div>
         
         {/* Desktop Menu */}
@@ -67,64 +75,23 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-sm"
             >
-              {item.path.startsWith("/#") || item.path === "/" ? (
-                <a 
-                  href={item.path} 
-                  onClick={closeMenu}
-                  className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <Link 
-                  to={item.path} 
-                  onClick={closeMenu}
-                  className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                >
-                  {item.name}
-                </Link>
-              )}
+              <NavbarLink target={item.target} onClick={closeMenu} className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100">
+                {item.name}
+              </NavbarLink>
             </motion.li>
           ))}
         </motion.ul>
         
-        {/* Social Icons */}
-        <div className="hidden items-center gap-3 md:flex">
-          <a 
-            href="https://github.com/Mickyj70" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-            aria-label="GitHub"
-          >
-            <FaGithub />
-          </a>
-          <a 
-            href="https://x.com/IAmMicky7" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-            aria-label="twitter"
-          >
-            <FaTwitter />
-          </a>
-          <a 
-            href="https://wa.link/hzr6ow" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-            aria-label="WhatsApp"
-          >
-            <FaWhatsapp />
-          </a>
+        <div className="hidden md:block">
           <ThemeSwitcher />
         </div>
-        
+
         {/* Mobile Menu Button */}
         <button 
           className="rounded-md border border-neutral-200 bg-white p-2 text-xl text-neutral-900 shadow-sm transition hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900 md:hidden"
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
           {isOpen ? <FaTimes /> : <HiOutlineMenuAlt1 />}
         </button>
@@ -142,57 +109,14 @@ const Navbar = () => {
             <ul className="flex flex-col space-y-4">
               {menuItems.map((item) => (
                 <li key={item.name}>
-                  {item.path.startsWith("/#") || item.path === "/" ? (
-                    <a 
-                      href={item.path} 
-                      onClick={closeMenu}
-                      className="block py-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
-                    >
-                      {item.name}
-                    </a>
-                  ) : (
-                    <Link 
-                      to={item.path} 
-                      onClick={closeMenu}
-                      className="block py-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
-                    >
-                      {item.name}
-                    </Link>
-                  )}
+                  <NavbarLink target={item.target} onClick={closeMenu} className="block py-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100">
+                    {item.name}
+                  </NavbarLink>
                 </li>
               ))}
             </ul>
             
-            <div className="mt-6 flex items-center justify-between border-t border-neutral-200 pt-4 dark:border-neutral-800">
-              <div className="flex items-center gap-5">
-              <a 
-                href="https://github.com/Mickyj70" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                aria-label="GitHub"
-              >
-                <FaGithub />
-              </a>
-              <a 
-                href="http://instagram.com/mike_dev7?igshid=NGVhN2U2NjQ0Yg==" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                aria-label="Instagram"
-              >
-                <FaInstagram />
-              </a>
-              <a 
-                href="https://wa.link/hzr6ow" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                aria-label="WhatsApp"
-              >
-                <FaWhatsapp />
-              </a>
-              </div>
+            <div className="mt-6 border-t border-neutral-200 pt-4 dark:border-neutral-800">
               <ThemeSwitcher />
             </div>
           </div>
