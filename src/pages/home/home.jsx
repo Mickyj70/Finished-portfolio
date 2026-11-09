@@ -45,6 +45,13 @@ const Home = () => {
               <HiOutlineMail />
               <span className="ml-2">Email</span>
             </a>
+            <a
+              className="btn-primary"
+              href={`${import.meta.env.BASE_URL}Michael-Joseph-CV.pdf`}
+              download
+            >
+              Download CV
+            </a>
           </div>
 
           {/* Now Playing – polls every 10 s; click to expand album modal */}
