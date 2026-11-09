@@ -41,28 +41,46 @@
   /* compact pill */
   /* ── Now Playing card (homepage) ── */
   .np-card {
-    @apply flex items-center gap-4 rounded-xl border px-4 py-3 transition-all duration-200;
+    @apply relative isolate flex items-center gap-3 overflow-hidden rounded-xl border transition-all duration-200 sm:gap-4;
     @apply border-neutral-200 bg-white/60 backdrop-blur-sm shadow-sm;
     @apply dark:border-neutral-800 dark:bg-neutral-900/70;
-    max-width: 480px;
+    max-width: 420px;
   }
   .np-card--active {
-    @apply cursor-pointer hover:border-neutral-300 hover:bg-white hover:shadow-md;
+    @apply cursor-pointer pl-4 hover:border-neutral-300 hover:bg-white hover:shadow-md;
     @apply dark:hover:border-neutral-700 dark:hover:bg-neutral-900;
   }
   .np-card--idle {
-    @apply cursor-default opacity-60;
+    @apply cursor-default px-4 py-3 opacity-60;
   }
 
-  /* album thumbnail */
+  /* Full-card artwork and contrast overlay */
   .np-card-art {
-    @apply h-14 w-14 shrink-0 rounded-lg object-cover shadow-sm;
-    @apply ring-1 ring-black/10 dark:ring-white/10;
+    @apply pointer-events-none absolute inset-0 -z-10;
+  }
+  .np-card-art img {
+    @apply h-full w-full object-cover;
+  }
+  .np-card-art::after {
+    @apply absolute inset-0;
+    content: "";
+    background: linear-gradient(90deg, rgb(0 0 0 / 85%), rgb(0 0 0 / 65%));
+  }
+  .np-card:has(.np-card-art) {
+    min-height: 8rem;
+  }
+  .np-card:has(.np-card-art) .np-card-title {
+    @apply text-white;
+  }
+  .np-card:has(.np-card-art) :is(.np-card-label, .np-card-artist, .np-pill-paused) {
+    @apply text-neutral-200;
+  }
+  .np-card:has(.np-card-art) .np-link-pill {
+    @apply bg-white hover:bg-neutral-100;
   }
 
-  /* text stack */
   .np-card-text {
-    @apply flex min-w-0 flex-1 flex-col gap-0.5;
+    @apply flex min-w-0 flex-1 flex-col gap-0.5 py-3;
   }
   .np-card-label {
     @apply text-[11px] font-medium uppercase tracking-wider text-neutral-400 dark:text-neutral-500;
@@ -79,7 +97,7 @@
 
   /* right cluster: wave + links */
   .np-card-right {
-    @apply flex shrink-0 items-center gap-2;
+    @apply flex shrink-0 items-center gap-2 pr-3 sm:pr-4;
   }
 
   /* audio wave – color follows active source */
@@ -102,7 +120,7 @@
 
   /* source badge on card */
   .np-source-pill {
-    @apply mt-1 inline-flex max-w-full items-center gap-1 truncate rounded-full border px-2 py-0.5 text-[10px] font-medium;
+    @apply mt-1 inline-flex max-w-full self-start items-center gap-1 truncate rounded-full border px-2 py-0.5 text-[10px] font-medium;
     @apply border-neutral-200 bg-neutral-50 text-neutral-500;
     @apply dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400;
   }

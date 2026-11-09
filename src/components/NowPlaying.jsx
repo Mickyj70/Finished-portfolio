@@ -236,12 +236,9 @@ export default function NowPlaying({ apiUrl = API_URL }) {
           {track ? (
             <>
               {track.image && (
-                <img
-                  src={track.image}
-                  alt={track.album ?? track.title}
-                  className="np-card-art"
-                  loading="lazy"
-                />
+                <div className="np-card-art" aria-hidden="true">
+                  <img src={track.image} alt="" loading="lazy" />
+                </div>
               )}
               <div className="np-card-text">
                 <span className="np-card-label">
