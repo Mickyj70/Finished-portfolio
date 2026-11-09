@@ -13,6 +13,9 @@ function App() {
       <About />
       <Works />
       <Contact />
+      <footer className="px-4 pb-8 text-center text-xs text-neutral-500 dark:text-neutral-400">
+        If the build fails, try tapping my name three times.
+      </footer>
     </>
   );
 }

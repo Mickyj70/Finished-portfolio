@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import BugGame from "../BugGame";
 import ThemeSwitcher from "../ThemeSwitcher";
 
 const menuItems = [
@@ -24,6 +25,20 @@ function NavbarLink({ target, ...props }) {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [gameOpen, setGameOpen] = useState(false);
+  const logoTaps = useRef([]);
+
+  function handleLogoClick(event) {
+    if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+    closeMenu();
+    const now = Date.now();
+    logoTaps.current = [...logoTaps.current.filter((time) => now - time < 1800), now];
+    if (logoTaps.current.length === 3) {
+      event.preventDefault();
+      logoTaps.current = [];
+      setGameOpen(true);
+    }
+  }
   
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -56,7 +71,7 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
           className="text-base font-semibold tracking-tight"
         >
-          <NavbarLink target="#home" onClick={closeMenu} className="hover:opacity-80">
+          <NavbarLink target="#home" onClick={handleLogoClick} className="hover:opacity-80">
             Mike Dev
           </NavbarLink>
         </motion.div>
@@ -122,6 +137,7 @@ const Navbar = () => {
           </div>
         </motion.div>
       )}
+      {gameOpen && <BugGame onClose={() => setGameOpen(false)} />}
     </nav>
   );
 };
