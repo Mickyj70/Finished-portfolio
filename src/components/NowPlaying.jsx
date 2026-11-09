@@ -30,36 +30,6 @@ function SpotifyIcon() {
   );
 }
 
-function AppleMusicIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="np-icon">
-      <defs>
-        <linearGradient id="np-apple-grad" x1="5" x2="19" y1="3" y2="21">
-          <stop stopColor="#FB5C74" />
-          <stop offset="1" stopColor="#FA243C" />
-        </linearGradient>
-      </defs>
-      <rect width="20" height="20" x="2" y="2" rx="5" fill="url(#np-apple-grad)" />
-      <path
-        d="M16.8 6.1v8.7c0 1.3-1 2.2-2.4 2.2-1.1 0-2-.6-2-1.5 0-1 1-1.7 2.2-1.7.3 0 .6 0 .8.1V8.6l-5.9 1.2v6.3c0 1.3-1 2.2-2.4 2.2-1.1 0-2-.6-2-1.5 0-1 1-1.7 2.2-1.7.3 0 .6 0 .8.1V8.7l8.7-1.8Z"
-        fill="white"
-      />
-    </svg>
-  );
-}
-
-function LastFmIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="np-icon">
-      <circle cx="12" cy="12" r="10" fill="#D51007" />
-      <path
-        d="M14.6 14.9c-.5.9-1.4 1.4-2.5 1.4-1.7 0-2.9-1.3-2.9-3.1 0-1.9 1.3-3.2 3.1-3.2.7 0 1.3.2 1.8.5l.5-1.5c-.7-.4-1.5-.6-2.4-.6-2.8 0-4.7 1.9-4.7 4.8 0 2.8 1.8 4.6 4.5 4.6 1.6 0 2.9-.7 3.6-2l-1-.9Zm3.1-5.6c-1.9 0-3.2 1.1-3.7 2.7l1.3.5c.3-1 1.1-1.6 2.2-1.6.9 0 1.5.5 1.5 1.3 0 .2 0 .4-.1.6l-2.2.5c-1.7.4-2.6 1.2-2.6 2.6 0 1.6 1.2 2.6 3 2.6 1.3 0 2.4-.6 3-1.7l-1.1-.7c-.4.7-1.1 1.1-1.9 1.1-.8 0-1.3-.4-1.3-1 0-.4.2-.7.7-.8l2.4-.5c1.5-.3 2.3-1.3 2.3-2.8 0-1.7-1.3-2.8-3.5-2.8Z"
-        fill="#fff"
-      />
-    </svg>
-  );
-}
-
 /** Human-readable source label for badges */
 function sourceMeta(source) {
   switch (source) {
@@ -73,9 +43,9 @@ function sourceMeta(source) {
     case "lastfm":
       return {
         key: "lastfm",
-        label: "Apple Music · YT Music",
-        detail: "Via Last.fm (Apple Music, YouTube Music & more)",
-        icon: <LastFmIcon />,
+        label: "YouTube Music",
+        detail: "YouTube Music via Last.fm",
+        icon: <YouTubeMusicIcon />,
       };
     default:
       return {
@@ -123,11 +93,11 @@ function AlbumCover({ image, size }) {
 /**
  * Links to streaming platforms.
  * When source is Spotify, prefer the direct track URL for Spotify.
- * For Last.fm (Apple/YT Music), search links open the track on each service.
+ * Search links are available for both platforms.
  */
 function MusicLinks({ track, compact }) {
   const q = encodeURIComponent(`${track.title} ${track.artist}`);
-  const active = track.source;
+  const active = track.source === "lastfm" ? "youtube" : track.source;
 
   const links = [
     {
@@ -144,21 +114,12 @@ function MusicLinks({ track, compact }) {
       href: `https://music.youtube.com/search?q=${q}`,
       icon: <YouTubeMusicIcon />,
     },
-    {
-      key: "apple",
-      label: "Apple Music",
-      href: `https://music.apple.com/search?term=${q}`,
-      icon: <AppleMusicIcon />,
-    },
   ];
 
   return (
     <div className={compact ? "np-links-compact" : "np-links-grid"}>
       {links.map((l) => {
-        // Highlight Spotify when source is Spotify; for Last.fm highlight Apple + YT
-        const isActive =
-          (active === "spotify" && l.key === "spotify") ||
-          (active === "lastfm" && (l.key === "apple" || l.key === "youtube"));
+        const isActive = active === l.key;
 
         return (
           <a

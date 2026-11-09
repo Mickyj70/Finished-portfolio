@@ -3,12 +3,12 @@
  *
  * Sources
  *   1. Spotify  – live currently-playing (needs SPOTIFY_* env)
- *   2. Last.fm  – scrobbles from Apple Music, YouTube Music, phones, etc.
+ *   2. Last.fm  – scrobbles from YouTube Music on Android via Pano Scrobbler
  *                 (needs LASTFM_API_KEY + LASTFM_USER)
  *
  * Merge priority
  *   1. Spotify if actively playing
- *   2. Last.fm if now-playing (covers Apple Music / YT Music scrobbles)
+ *   2. Last.fm if now-playing (covers YouTube Music scrobbles)
  *   3. Spotify paused session
  *   4. Last.fm most recent track
  *
@@ -43,7 +43,7 @@ Missing music sources. Configure at least one of:
     SPOTIFY_CLIENT_SECRET
     SPOTIFY_REFRESH_TOKEN
 
-  Last.fm (Apple Music + YouTube Music + phones via scrobblers):
+  Last.fm (YouTube Music on Android via Pano Scrobbler):
     LASTFM_API_KEY   – https://www.last.fm/api/account/create
     LASTFM_USER      – your Last.fm username
 `);
@@ -125,18 +125,9 @@ async function fetchSpotify() {
   };
 }
 
-// ─── Last.fm (Apple Music / YT Music / phones via scrobbling) ────────────────
+// ─── Last.fm (YouTube Music via Pano Scrobbler) ────────────────
 
-/**
- * Last.fm has no "Apple Music" or "YouTube Music" API of its own, but it is the
- * reliable way to see what you're playing on those apps on Android/iPhone:
- * install a scrobbler, connect Last.fm, then we read user.getRecentTracks.
- *
- * Suggested scrobblers:
- *   iOS Apple Music  – QuietScrob, Marvis Pro, or Last.fm official app
- *   Android (AM/YTM) – Pano Scrobbler
- *   Spotify          – native Last.fm connection in Spotify settings (optional)
- */
+// Pano sends Android playback to Last.fm. Read it via user.getRecentTracks.
 async function fetchLastFm() {
   if (!hasLastFm) return null;
 
@@ -197,7 +188,7 @@ async function fetchLastFm() {
     isPlaying: nowPlaying,
     progress:  null,
     duration:  null,
-    // Last.fm does not tell us Apple vs YT Music; UI labels this as multi-source
+    // Last.fm does not identify the original playback app.
     source:    "lastfm",
   };
 }
@@ -323,7 +314,7 @@ Bun.serve({
 
 const enabled = [
   hasSpotify && "Spotify",
-  hasLastFm  && "Last.fm (Apple Music / YouTube Music)",
+  hasLastFm  && "Last.fm (YouTube Music via Pano)",
 ].filter(Boolean);
 
 console.log(`🎵 Now-playing API on http://localhost:${PORT}`);

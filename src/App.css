@@ -202,7 +202,7 @@
 
   /* modal platform link grid */
   .np-links-grid {
-    @apply mt-4 grid grid-cols-3 gap-2;
+    @apply mt-4 grid grid-cols-2 gap-2;
   }
   .np-link-btn {
     @apply flex h-9 items-center justify-center gap-1.5 rounded-md border px-2 text-xs transition-colors;
