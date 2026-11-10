@@ -1,5 +1,13 @@
 export const data = [
   {
+    id: 13,
+    title: "Eri",
+    path: "https://useeri.com/",
+    desc: "Website for a field research team that helps brands understand Nigerian markets through in-person interviews, retail audits, and trade spend verification.",
+    year: 2026,
+    type: "Website",
+  },
+  {
     id: 1,
     title: "Rideshare",
     path: "https://rideshare-frontend-nine.vercel.app/",
